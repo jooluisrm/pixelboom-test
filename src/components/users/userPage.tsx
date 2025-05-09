@@ -38,6 +38,10 @@ export const UserPage = () => {
             <div className="flex flex-col gap-2">
                  <UserItem /> 
                  <UserItem /> 
+                 <UserItem /> 
+                 <UserItem /> 
+                 <UserItem /> 
+                 <UserItem /> 
             </div>
 
             <div className="flex justify-between items-center w-full ">
@@ -48,7 +52,7 @@ export const UserPage = () => {
                     <PaginationUser />
                 </div>
                 <div className="flex items-center gap-2">
-                    <Label className="text-muted-foreground font-sans text-[14px]">Itens por página</Label>
+                    <Label className="text-muted-foreground font-sans text-[14px] font-normal">Itens por página</Label>
                     <SelectItens />
                 </div>
             </div>
