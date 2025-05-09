@@ -14,6 +14,8 @@ import {
 import { Plus } from "lucide-react"
 import { Checkbox } from "../ui/checkbox"
 import { StatusInput } from "./statusInput"
+import { ToastUser } from "./toastUser"
+import { IconItem } from "../header/iconItem"
 
 export function SheetAddUser() {
     return (
@@ -25,8 +27,12 @@ export function SheetAddUser() {
                 </Button>
             </SheetTrigger>
             <SheetContent className="flex flex-col min-w-[560px] p-10 gap-10">
-                <SheetHeader>
+                <SheetHeader className="flex flex-row items-center justify-between">
                     <SheetTitle className="font-serif text-2xl font-normal">Adicionar usuário</SheetTitle>
+                    <SheetClose asChild>
+                        <IconItem type="x" />
+                    </SheetClose>
+
                 </SheetHeader>
                 <div className="flex flex-col justify-between h-full">
                     <form className="flex flex-col gap-5">
@@ -85,8 +91,7 @@ export function SheetAddUser() {
                         <SheetClose>
                             <Button variant={"ghost"} className="w-[89px] h-10 rounded-full border text-[14px] font-normal">Cancelar</Button>
                         </SheetClose>
-
-                        <Button type="submit" className="w-[89px] h-10 rounded-full border bg-[#102822] text-[14px] font-normal">Adicionar</Button>
+                        <ToastUser />
                     </SheetFooter>
                 </div>
             </SheetContent>

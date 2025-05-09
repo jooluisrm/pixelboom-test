@@ -1,4 +1,4 @@
-import { Bell, CircleHelp, ListFilter } from "lucide-react";
+import { Bell, CircleHelp, ListFilter, X } from "lucide-react";
 import { Button } from "../ui/button";
 
 type Props = {
@@ -11,6 +11,7 @@ export const IconItem = ({ type }: Props) => {
             {type === "help" && <CircleHelp size={16} />}
             {type === "bell" && <Bell size={16} />}
             {type === "filter" && <ListFilter size={16} />}
+            {type === "x" && <X />}
         </Button>
     );
 }
