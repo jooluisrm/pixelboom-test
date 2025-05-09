@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { DataUsersItem } from "./dataUsersItem";
 import { SheetAddUser } from "./sheetAddUser";
 import { IconItem } from "../header/iconItem";
+import { UserItem } from "./userItem";
 
 export const UserPage = () => {
     return (
@@ -32,7 +33,7 @@ export const UserPage = () => {
             </div>
 
             <div>
-                
+                 <UserItem /> 
             </div>
         </div>
     );
