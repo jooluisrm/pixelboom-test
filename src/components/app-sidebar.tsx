@@ -13,7 +13,7 @@ import { Headset } from "lucide-react"
 export function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader className="p-6">
+      <SidebarHeader className="flex justify-center p-6 h-[72px] border-b">
         <Button className="max-w-24 h-8 bg-black font-bold">
             Logo
         </Button>
@@ -39,8 +39,8 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter>
-        <div className="flex items-center justify-between gap-[8px] max-w-[280px] h-[40px] bg-white rounded-full p-4 cursor-pointer">
+      <SidebarFooter className="mb-4">
+        <div className="flex items-center justify-between gap-[8px] w-full h-[40px] bg-white rounded-full p-4 cursor-pointer">
             Precisa de ajuda? <Headset size={16}/>
         </div>
       </SidebarFooter>
