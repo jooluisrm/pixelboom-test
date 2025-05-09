@@ -1,3 +1,5 @@
+"use client"
+
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -8,8 +10,13 @@ import { UserItem } from "./userItem";
 import { PaginationUser } from "./paginationUser";
 import { Label } from "../ui/label";
 import { SelectItens } from "./select";
+import { useState } from "react";
+import { Usuario, usuarios } from "@/data/usersList";
 
 export const UserPage = () => {
+
+    const [usersList, setUsersList] = useState<Usuario[]>(usuarios);
+
     return (
         <div className="flex flex-col gap-5">
             <div className="flex justify-between items-center pb-5">
@@ -36,12 +43,11 @@ export const UserPage = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-                 <UserItem /> 
-                 <UserItem /> 
-                 <UserItem /> 
-                 <UserItem /> 
-                 <UserItem /> 
-                 <UserItem /> 
+                {
+                    usersList.map((item, index) => (
+                        <UserItem item={item} key={index}/>
+                    ))
+                }
             </div>
 
             <div className="flex justify-between items-center w-full ">

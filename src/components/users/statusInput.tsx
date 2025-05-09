@@ -9,8 +9,12 @@ import {
 import { Switch } from "../ui/switch";
 import { Label } from "@radix-ui/react-label";
 
+type Props = {
+    isAtivo: boolean;
+    setIsAtivo: (value: boolean) => void;
+}
 
-export const StatusInput = () => {
+export const StatusInput = ({ isAtivo, setIsAtivo }: Props) => {
     return (
         <Card className="w-[480px] h-[66px] bg-primary-foreground rounded-md p-4 gap-4 flex items-center justify-between">
             <div>
@@ -18,7 +22,11 @@ export const StatusInput = () => {
                 <p className="text-[12px] text-muted-foreground">Definia se o usuário estará ativo ao ser adicionado.</p>
             </div>
             <span className="flex items-center gap-2">
-                <Switch id="ativo"/>
+                <Switch
+                    id="ativo"
+                    checked={isAtivo}
+                    onCheckedChange={(checked) => setIsAtivo(checked)}
+                />
                 <Label htmlFor="ativo">
                     Ativo
                 </Label>
