@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { UserPage } from "@/components/users/userPage";
 
 const Page = () => {
     return (
-        <div>
-            aa
-        </div>
+        <section className="p-10">
+            <UserPage />
+        </section>
     );
 }
 

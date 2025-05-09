@@ -16,7 +16,7 @@ export function AppSidebar() {
       <SidebarHeader className="flex justify-center p-6 h-[72px] border-b">
         <Button className="max-w-24 h-8 bg-black font-bold">
             Logo
-        </Button>
+        </Button> 
       </SidebarHeader>
 
       <SidebarContent className="p-4">
