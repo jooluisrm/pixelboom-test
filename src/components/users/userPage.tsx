@@ -5,6 +5,9 @@ import { DataUsersItem } from "./dataUsersItem";
 import { SheetAddUser } from "./sheetAddUser";
 import { IconItem } from "../header/iconItem";
 import { UserItem } from "./userItem";
+import { PaginationUser } from "./paginationUser";
+import { Label } from "../ui/label";
+import { SelectItens } from "./select";
 
 export const UserPage = () => {
     return (
@@ -32,8 +35,22 @@ export const UserPage = () => {
                 <IconItem type="filter" />
             </div>
 
-            <div>
+            <div className="flex flex-col gap-2">
                  <UserItem /> 
+                 <UserItem /> 
+            </div>
+
+            <div className="flex justify-between items-center w-full ">
+                <div className="text-[14px] font-sans text-muted-foreground">
+                    5 de 294 itens
+                </div>
+                <div>
+                    <PaginationUser />
+                </div>
+                <div className="flex items-center gap-2">
+                    <Label className="text-muted-foreground font-sans text-[14px]">Itens por página</Label>
+                    <SelectItens />
+                </div>
             </div>
         </div>
     );
