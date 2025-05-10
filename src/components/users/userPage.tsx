@@ -10,12 +10,24 @@ import { UserItem } from "./userItem";
 import { PaginationUser } from "./paginationUser";
 import { Label } from "../ui/label";
 import { SelectItens } from "./select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Usuario, usuarios } from "@/data/usersList";
+import { SkeletonItemUser } from "./skeleton/skeletonItemUser";
 
 export const UserPage = () => {
 
+    const [isLoading, setIsLoading] = useState(true);
     const [usersList, setUsersList] = useState<Usuario[]>(usuarios);
+
+    useEffect(() => {
+    
+    const timer = setTimeout(() => {
+      setUsersList(usuarios); 
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer); 
+  }, []);
 
     return (
         <div className="flex flex-col gap-5">
@@ -43,11 +55,13 @@ export const UserPage = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-                {
-                    usersList.map((item, index) => (
-                        <UserItem item={item} key={index}/>
-                    ))
-                }
+                {isLoading
+                    ? Array(5)
+                        .fill(null)
+                        .map((_, index) => <SkeletonItemUser key={index} />)
+                    : usersList.map((item, index) => (
+                        <UserItem item={item} key={index} />
+                    ))}
             </div>
 
             <div className="flex justify-between items-center w-full ">
