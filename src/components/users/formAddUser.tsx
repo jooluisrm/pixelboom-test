@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { StatusInput } from "./statusInput";
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -19,9 +16,9 @@ import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { Switch } from "../ui/switch";
 import { SheetClose, SheetFooter } from "../ui/sheet";
-import { ToastUser } from "./toastUser";
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "../ui/toast"
+import InputMask from 'react-input-mask';
 
 export const formSchema = z.object({
     nome: z.string().min(3, 'Precisa ter no mínimo 3 caracteres'),
@@ -30,11 +27,11 @@ export const formSchema = z.object({
         .string()
         .min(10, 'Telefone inválido')
         .max(15, 'Telefone inválido'),
-    zap: z.boolean().optional(), 
+    zap: z.boolean().optional(),
     cpf: z
         .string()
         .min(11, 'CPF inválido')
-        .max(14, 'CPF inválido'), 
+        .max(14, 'CPF inválido'),
     rg: z.string().min(5, 'RG inválido'),
     email2: z.string().email('E-mail inválido!'),
     ativo: z.boolean().optional(),
@@ -45,7 +42,7 @@ export const FormAddUser = () => {
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
-        defaultValues: {email: "", nome: "", ativo: false, cpf: "", email2: "", rg: "", tel: "", zap: false},
+        defaultValues: { email: "", nome: "", ativo: false, cpf: "", email2: "", rg: "", tel: "", zap: false },
     });
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
@@ -97,9 +94,17 @@ export const FormAddUser = () => {
                             name="tel"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Telefone</FormLabel>
+                                    <FormLabel htmlFor="tel">Telefone</FormLabel>
                                     <FormControl>
-                                        <Input id="tel" placeholder="Digite o telefone" {...field} />
+                                        <InputMask
+                                            id="tel"
+                                            mask="(99) 99999-9999"
+                                            placeholder="Digite o telefone"
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        >
+                                            {(inputProps) => <Input {...inputProps} />}
+                                        </InputMask>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -128,7 +133,15 @@ export const FormAddUser = () => {
                                 <FormItem>
                                     <FormLabel htmlFor="cpf">CPF</FormLabel>
                                     <FormControl>
-                                        <Input id="cpf" placeholder="Informe o CPF" {...field} />
+                                        <InputMask
+                                            mask="999.999.999-99"
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        >
+                                            {(inputProps) => (
+                                                <Input id="cpf" placeholder="Informe o CPF" {...inputProps} />
+                                            )}
+                                        </InputMask>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -142,7 +155,15 @@ export const FormAddUser = () => {
                                 <FormItem>
                                     <FormLabel htmlFor="rg">RG</FormLabel>
                                     <FormControl>
-                                        <Input id="rg" placeholder="Informe o RG" {...field} />
+                                        <InputMask
+                                            mask="99.999.999-9"
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                        >
+                                            {(inputProps) => (
+                                                <Input id="rg" placeholder="Informe o RG" {...inputProps} />
+                                            )}
+                                        </InputMask>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -157,7 +178,7 @@ export const FormAddUser = () => {
                             <FormItem>
                                 <FormLabel htmlFor="email2">E-mail</FormLabel>
                                 <FormControl >
-                                    <Input id="email2" placeholder="Informe o e-mail" {...field} />
+                                    <Input id="email2" placeholder="Digite o e-mail" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
