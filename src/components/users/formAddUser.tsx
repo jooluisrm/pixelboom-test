@@ -57,91 +57,129 @@ export const FormAddUser = () => {
     return (
         <>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
-                    <div>
-                        <FormField
-                            control={form.control}
-                            name="nome"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Nome completo</FormLabel>
-                                    <FormControl>
-                                        <Input id="nome" placeholder="Digite o nome" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-                    <div>
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>E-mail</FormLabel>
-                                    <FormControl>
-                                        <Input id="email" placeholder="Digite o e-mail" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <FormField
-                            control={form.control}
-                            name="tel"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel htmlFor="tel">Telefone</FormLabel>
-                                    <FormControl>
-                                        <InputMask
-                                            id="tel"
-                                            mask="(99) 99999-9999"
-                                            placeholder="Digite o telefone"
-                                            value={field.value}
-                                            onChange={field.onChange}
-                                        >
-                                            {(inputProps) => <Input {...inputProps} />}
-                                        </InputMask>
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-
-                        <div className="flex gap-2 items-center">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 justify-between">
+                    <div className="flex flex-col gap-5">
+                        <div>
                             <FormField
                                 control={form.control}
-                                name="zap"
+                                name="nome"
                                 render={({ field }) => (
-                                    <>
-                                        <Checkbox id="zap" checked={field.value} onCheckedChange={field.onChange} />
-                                        <Label htmlFor="zap">WhatsApp</Label>
-                                    </>
+                                    <FormItem>
+                                        <FormLabel>Nome completo</FormLabel>
+                                        <FormControl>
+                                            <Input id="nome" placeholder="Digite o nome" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
                                 )}
                             />
                         </div>
-                    </div>
+                        <div>
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>E-mail</FormLabel>
+                                        <FormControl>
+                                            <Input id="email" placeholder="Digite o e-mail" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <FormField
+                                control={form.control}
+                                name="tel"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel htmlFor="tel">Telefone</FormLabel>
+                                        <FormControl>
+                                            <InputMask
+                                                id="tel"
+                                                mask="(99) 99999-9999"
+                                                placeholder="Digite o telefone"
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                            >
+                                                {(inputProps) => <Input {...inputProps} />}
+                                            </InputMask>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
-                    <div className="grid grid-cols-2 gap-[16px]">
+                            <div className="flex gap-2 items-center">
+                                <FormField
+                                    control={form.control}
+                                    name="zap"
+                                    render={({ field }) => (
+                                        <>
+                                            <Checkbox id="zap" checked={field.value} onCheckedChange={field.onChange} />
+                                            <Label htmlFor="zap">WhatsApp</Label>
+                                        </>
+                                    )}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-[16px]">
+                            <FormField
+                                control={form.control}
+                                name="cpf"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel htmlFor="cpf">CPF</FormLabel>
+                                        <FormControl>
+                                            <InputMask
+                                                mask="999.999.999-99"
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                            >
+                                                {(inputProps) => (
+                                                    <Input id="cpf" placeholder="Informe o CPF" {...inputProps} />
+                                                )}
+                                            </InputMask>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="rg"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel htmlFor="rg">RG</FormLabel>
+                                        <FormControl>
+                                            <InputMask
+                                                mask="99.999.999-9"
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                            >
+                                                {(inputProps) => (
+                                                    <Input id="rg" placeholder="Informe o RG" {...inputProps} />
+                                                )}
+                                            </InputMask>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+
                         <FormField
                             control={form.control}
-                            name="cpf"
+                            name="email2"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="cpf">CPF</FormLabel>
-                                    <FormControl>
-                                        <InputMask
-                                            mask="999.999.999-99"
-                                            value={field.value}
-                                            onChange={field.onChange}
-                                        >
-                                            {(inputProps) => (
-                                                <Input id="cpf" placeholder="Informe o CPF" {...inputProps} />
-                                            )}
-                                        </InputMask>
+                                    <FormLabel htmlFor="email2">E-mail</FormLabel>
+                                    <FormControl >
+                                        <Input id="email2" placeholder="Digite o e-mail" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -150,69 +188,32 @@ export const FormAddUser = () => {
 
                         <FormField
                             control={form.control}
-                            name="rg"
+                            name="ativo"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel htmlFor="rg">RG</FormLabel>
                                     <FormControl>
-                                        <InputMask
-                                            mask="99.999.999-9"
-                                            value={field.value}
-                                            onChange={field.onChange}
-                                        >
-                                            {(inputProps) => (
-                                                <Input id="rg" placeholder="Informe o RG" {...inputProps} />
-                                            )}
-                                        </InputMask>
+                                        <Card className="w-[480px] h-[66px] bg-primary-foreground rounded-md p-4 gap-4 flex items-center justify-between">
+                                            <div>
+                                                <h1 className="text-[14px] font-sans">Status</h1>
+                                                <p className="text-[12px] text-muted-foreground">
+                                                    Defina se o usuário estará ativo ao ser adicionado.
+                                                </p>
+                                            </div>
+                                            <span className="flex items-center gap-2">
+                                                <Switch
+                                                    id="ativo"
+                                                    checked={field.value}
+                                                    onCheckedChange={field.onChange}
+                                                />
+                                                <Label htmlFor="ativo">Ativo</Label>
+                                            </span>
+                                        </Card>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
                     </div>
-
-                    <FormField
-                        control={form.control}
-                        name="email2"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel htmlFor="email2">E-mail</FormLabel>
-                                <FormControl >
-                                    <Input id="email2" placeholder="Digite o e-mail" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="ativo"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormControl>
-                                    <Card className="w-[480px] h-[66px] bg-primary-foreground rounded-md p-4 gap-4 flex items-center justify-between">
-                                        <div>
-                                            <h1 className="text-[14px] font-sans">Status</h1>
-                                            <p className="text-[12px] text-muted-foreground">
-                                                Defina se o usuário estará ativo ao ser adicionado.
-                                            </p>
-                                        </div>
-                                        <span className="flex items-center gap-2">
-                                            <Switch
-                                                id="ativo"
-                                                checked={field.value}
-                                                onCheckedChange={field.onChange}
-                                            />
-                                            <Label htmlFor="ativo">Ativo</Label>
-                                        </span>
-                                    </Card>
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
                     <SheetFooter >
                         <SheetClose>
                             <Button variant={"ghost"} className="w-[89px] h-10 rounded-full border text-[14px] font-normal">Cancelar</Button>
