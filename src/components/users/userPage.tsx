@@ -1,10 +1,7 @@
 "use client"
 
-import { Search } from "lucide-react";
-import { Input } from "../ui/input";
 import { DataUsersItem } from "./dataUsersItem";
 import { SheetAddUser } from "./sheetAddUser";
-import { IconItem } from "../header/iconItem";
 import { UserItem } from "./userItem";
 import { useEffect, useState } from "react";
 import { usuarios } from "@/data/usersList";
@@ -15,6 +12,7 @@ import { SkeletonHeaderComButton } from "./skeleton/skeletonHeaderComButton";
 import { SkeletonPaginationSection } from "./skeleton/skeletonPaginationSelect";
 import { PaginationFooter } from "./paginationFooter";
 import { Usuario } from "@/types/usuariosType";
+import { SearchFilter } from "./seachFilter";
 
 export const UserPage = () => {
 
@@ -22,12 +20,10 @@ export const UserPage = () => {
     const [usersList, setUsersList] = useState<Usuario[]>(usuarios);
 
     useEffect(() => {
-
         const timer = setTimeout(() => {
             setUsersList(usuarios);
             setIsLoading(false);
         }, 2000);
-
         return () => clearTimeout(timer);
     }, []);
 
@@ -59,20 +55,7 @@ export const UserPage = () => {
             </div>
 
             <div className="flex items-center gap-3">
-                {!isLoading ? (
-                    <>
-                        <div className="relative w-full">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
-                            <Input
-                                placeholder="Buscar..."
-                                className="pl-9 pr-3 py-2 rounded-md h-10 w-full"
-                            />
-                        </div>
-                        <IconItem type="filter" />
-                    </>
-                ) :
-                    <SkeletonFiltre />
-                }
+                {!isLoading ? <SearchFilter /> : <SkeletonFiltre />}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -90,11 +73,7 @@ export const UserPage = () => {
             </div>
 
             <div className="flex justify-between items-center w-full ">
-                {
-                    isLoading ? <SkeletonPaginationSection /> : <>
-                        <PaginationFooter />
-                    </>
-                }
+                {isLoading ? <SkeletonPaginationSection /> : <PaginationFooter />}
             </div>
         </div>
     );
