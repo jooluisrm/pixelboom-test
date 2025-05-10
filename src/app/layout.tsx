@@ -5,13 +5,19 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { HeaderRight } from "@/components/header/headerRight";
 import { Toaster } from "@/components/ui/toaster";
+import img from "../../public/favicon.png"
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "PixelBoom | Test",
+    title: "Pixel Boom | Test",
     description: "Teste pratico vaga: Front-End React",
+    icons: {
+        icon: "/favicon.png",
+        shortcut: "/favicon.png",
+        apple: "/favicon.png",
+    }
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -26,7 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             <HeaderRight />
                         </header>
                         {children}
-                        <Toaster /> 
+                        <Toaster />
                     </main>
                 </SidebarProvider>
             </body>

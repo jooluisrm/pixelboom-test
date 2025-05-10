@@ -36,7 +36,7 @@ export const UserPage = () => {
                 </div>
             )}
 
-            <div className="flex justify-between">
+            <div className="grid grid-cols-2 gap-5 lg:flex lg:justify-between">
                 {isLoading ? (
                     <>
                         <SkeletonCardInfo />
@@ -72,7 +72,7 @@ export const UserPage = () => {
                     ))}
             </div>
 
-            <div className="flex justify-between items-center w-full ">
+            <div className="flex flex-col md:flex-row md:justify-between items-center w-full ">
                 {isLoading ? <SkeletonPaginationSection /> : <PaginationFooter />}
             </div>
         </div>
