@@ -24,7 +24,7 @@ export function AppSidebar() {
             <CollapsibleItem />
         </SidebarGroup>
 
-        <SidebarGroup className="text-[#3F3F46] flex flex-col gap-5">
+        <SidebarGroup className="text-sidebar-foreground flex flex-col gap-5">
             <h2>Menu</h2>
             <div>
                 <ButtonLi text="Dashbord" active={false}/>

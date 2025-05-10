@@ -23,7 +23,7 @@ export const UserItem = ({ item }: Props) => {
         <Card className="h-[80px] rounded-lg border p-3 gap-3">
             <div className="flex justify-between items-center h-full">
                 <div className="flex gap-3">
-                    <AvatarUser />
+                    <AvatarUser nome={item.nome}/>
                     <div className="text-muted-foreground text-[12px]">
                         <div className="flex gap-3 items-center">
                             <h3 className="text-foreground text-[14px] font-sans">{item.nome}</h3>

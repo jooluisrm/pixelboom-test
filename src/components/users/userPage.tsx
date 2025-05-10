@@ -23,7 +23,7 @@ export const UserPage = () => {
         const timer = setTimeout(() => {
             setUsersList(usuarios);
             setIsLoading(false);
-        }, 2000);
+        }, 1500);
         return () => clearTimeout(timer);
     }, []);
 

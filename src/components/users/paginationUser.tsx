@@ -13,7 +13,7 @@ export function PaginationUser() {
         <Pagination>
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevious href="#" />
+                    <PaginationPrevious href="#"  className="text-muted-foreground"/>
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink href="#" isActive>1</PaginationLink>
