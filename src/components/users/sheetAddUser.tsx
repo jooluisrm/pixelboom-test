@@ -16,10 +16,19 @@ import { Checkbox } from "../ui/checkbox"
 import { StatusInput } from "./statusInput"
 import { ToastUser } from "./toastUser"
 import { IconItem } from "../header/iconItem"
+import { useState } from "react"
 
 export function SheetAddUser() {
+    const [open, setOpen] = useState(false);
+
+    const [isAtivo, setIsAtivo] = useState<boolean>(false);
+
+    const closeSheet = () => {
+        if(open === true) setOpen(false);
+    }
+
     return (
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
                 <Button className="w-[117px] h-10 rounded-full bg-[#102822] py-2 px-4 flex items-center gap-2 text-[14px]">
                     <Plus />
@@ -29,10 +38,7 @@ export function SheetAddUser() {
             <SheetContent className="flex flex-col min-w-[560px] p-10 gap-10">
                 <SheetHeader className="flex flex-row items-center justify-between">
                     <SheetTitle className="font-serif text-2xl font-normal">Adicionar usuário</SheetTitle>
-                    <SheetClose asChild>
-                        <IconItem type="x" />
-                    </SheetClose>
-
+                    <IconItem type="x" onClick={closeSheet} />
                 </SheetHeader>
                 <div className="flex flex-col justify-between h-full">
                     <form className="flex flex-col gap-5">
@@ -84,7 +90,7 @@ export function SheetAddUser() {
                         </div>
 
                         <div>
-                            <StatusInput />
+                            <StatusInput isAtivo={isAtivo} setIsAtivo={setIsAtivo} />
                         </div>
                     </form>
                     <SheetFooter >

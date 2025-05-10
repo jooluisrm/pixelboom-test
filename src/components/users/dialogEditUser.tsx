@@ -41,7 +41,7 @@ export const DialogEditUser = ({ item }: Props) => {
             </DialogTrigger>
             <DialogContent className="p-4">
                 <DialogHeader>
-                    <DialogTitle>Editar usuário</DialogTitle>
+                    <DialogTitle className="font-serif text-2xl font-normal">Editar usuário</DialogTitle>
                     <DialogDescription>
                         Edite as informações do usuário.
                     </DialogDescription>
