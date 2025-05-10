@@ -14,8 +14,8 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Checkbox } from "../ui/checkbox";
 import { StatusInput } from "./statusInput";
-import { Usuario } from "@/data/usersList";
 import { useState } from "react";
+import { Usuario } from "@/types/usuariosType";
 
 type Props = {
     item: Usuario;

@@ -11,7 +11,7 @@ import { Calendar, Clock, EllipsisVertical, Tag, User } from "lucide-react";
 import { Button } from "../ui/button";
 import { AtivoAndInativo } from "./ativoAndInativo";
 import { DialogEditUser } from "./dialogEditUser";
-import { Usuario } from "@/data/usersList";
+import { Usuario } from "@/types/usuariosType";
 
 
 type Props = {
