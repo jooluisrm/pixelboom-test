@@ -57,7 +57,7 @@ export const FormAddUser = () => {
     return (
         <>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 justify-between">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 justify-between h-full">
                     <div className="flex flex-col gap-5">
                         <div>
                             <FormField
